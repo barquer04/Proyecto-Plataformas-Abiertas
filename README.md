@@ -1,4 +1,3 @@
 # Tareas Plataformas Abiertas
 
-*Nombre de estudiante:* Mar.
- 
+*Nombre de estudiante:* Mar. 
