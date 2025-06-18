@@ -1,3 +1,3 @@
 # Tareas Plataformas Abiertas
 
-*Nombre de estudiante:* Mar. 
+*Nombre de las estudiantes:* Mar Barquero y Astrid Mendoza. 
