@@ -1,60 +1,77 @@
-# Sistema online para Librería ABC y Tienda Ropa
+# 🌸 Orchid Jewelry API & WebApp  
 
-Este proyecto consiste en la creación de una **API con MongoDB** para una **librería** y una **tienda de ropa**, junto con un **frontend** que permite la gestión de usuarios, libros, prendas y ventas. El sistema completo ofrece operaciones CRUD, así como consultas avanzadas (reportes).
+Proyecto desarrollado en el curso **Desarrollo de Plataformas Abiertas**.  
+Estudiantes: **Astrid Mendoza** & **Mar Barquero** 🎓  
 
 ---
 
-## 📚 Colecciones – Librería
+## 📖 Resumen  
+Orchid Jewelry es una aplicación web con **API REST en Flask** y una **interfaz en HTML, CSS y JavaScript**, diseñada para la **gestión de productos de joyería**.  
+El sistema permite:  
+- Registrar productos.  
+- Editarlos o eliminarlos.  
+- Consultarlos desde una tabla dinámica.  
+- Autenticación básica de usuarios (login).  
 
-### 👤 Usuarios
+La interfaz gráfica combina diseño moderno con colores suaves inspirados en la **Guaria Morada** 🌸, la flor nacional de Costa Rica.  
+
+---
+
+## ⚙️ Tecnologías utilizadas  
+- 🐍 **Flask (Python)** → Backend y API REST.  
+- 🍃 **MongoDB** → Base de datos NoSQL para almacenar los productos.  
+- 🎨 **HTML5, CSS3, JavaScript** → Frontend con estilos personalizados.  
+- 📦 **Postman** → Pruebas de los endpoints de la API.  
+
+---
+
+## 🚀 Endpoints principales (API)  
+👉 URL base: `http://127.0.0.1:5000/orchidjewerly/api/v1`  
+
+### 🔑 Usuarios  
+- **POST** `/usuarios/login` → Inicio de sesión.  
+
+📌 Usuario de prueba ya registrado en la colección de usuarios:  
 ```json
 {
   "username": "juanperez",
-  "email": "juan@example.com",
-  "password": "supersegura123",
-  "rol": "cliente",
-  "fecha_creacion": "2025-05-14T00:13:32.275Z"
+  "password": "supersegura123"
 }
+```  
 
-📘 Libros
-{
-  "titulo": "Rayuela",
-  "autor": {
-    "nombre": "Julio",
-    "apellido": "Cortázar",
-    "nacionalidad": "Argentina"
-  },
-  "precio": 18,
-  "cantidad_stock": 12
-}
+### 💎 Productos  
+- **GET** `/products` → Obtener todos los productos.  
+- **GET** `/products/{id}` → Obtener un producto por ID.  
+- **POST** `/products` → Crear producto.  
+- **PUT** `/products/{id}` → Actualizar producto.  
+- **DELETE** `/products/{id}` → Eliminar producto.  
 
-🧾 Ventas
-{
-  "libro": {
-    "titulo": "El Aleph"
-  },
-  "fecha_venta": "2025-05-11T00:00:00.000Z",
-  "cantidad": 3,
-  "total": 37.5,
-  "usuario": {
-    "username": "librera99"
-  }
-}
+---
 
+## 🖥️ Funcionalidades de la interfaz  
+- 📋 Formulario para agregar y editar productos.  
+- 📊 Tabla interactiva con listado de productos.  
+- 🗑️ Botones de acción: **Editar** y **Eliminar**.  
+- ⚡ Actualización en tiempo real tras cada acción.  
+- 🔔 Manejo de mensajes de carga y error.  
 
-🧥 Colecciones – Tienda de Ropa
-👕 Prendas
-{
-  "nombre": "Camiseta Oversize",
-  "marca": "Nike",
-  "talla": "L",
-  "precio": 22.99,
-  "stock": 15
-}
+---
 
-👤 Usuarios
-{
-  "nombre": "María López",
-  "email": "maria@example.com",
-  "rol": "cliente"
-}
+## 📂 Estructura del proyecto  
+- **Backend** → Carpeta de la API en Flask.  
+- **Frontend** → Archivos HTML, CSS y JS.  
+- **Postman Collection** → Archivo `.json` para probar los endpoints.  
+
+---
+
+## 🌟 Puntos importantes  
+- Se aplicó el concepto de **desarrollo en capas** (backend y frontend separados).  
+- Diseño responsivo y minimalista 🎨.  
+- Conexión con MongoDB para almacenamiento real.  
+- Proyecto completo listo para despliegue o mejoras futuras (ej. autenticación avanzada, imágenes de productos, etc.).  
+
+---
+
+## 👩‍💻 Autores  
+✨ **Astrid Mendoza**  
+✨ **Mar Barquero**  
