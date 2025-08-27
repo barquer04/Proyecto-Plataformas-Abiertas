@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - Orchid Jewelry</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <div class="header">
+       <div class="container">
+          <div class="navbar">
+              <div class="logo">
+                  <a href="index.html"><img src="images/logo.png" width="125px"></a>
+              </div>
+              <nav>
+               <ul id="MenuItems">
+                   <li><a href="index.html">Inicio</a></li>
+                   <li><a href="AboutUs.html">Sobre nosotros</a></li>
+                   <li><a href="ContactUs.html">Contáctanos</a></li>
+               </ul>
+              </nav>
+          </div>
+       </div>
+   </div>
+
+   <div class="contact-us">
+       <div class="small-container">
+           <div class="row">
+               <div class="col-2">
+                   <h2>Contáctanos</h2>
+                   <form action="contact_form.php" method="post">
+                       <div class="form-group">
+                           <label for="name">Nombre:</label>
+                           <input type="text" id="name" name="name" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="email">Correo electrónico:</label>
+                           <input type="email" id="email" name="email" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="subject">Asunto:</label>
+                           <input type="text" id="subject" name="subject" required>
+                       </div>
+                       <div class="form-group">
+                           <label for="message">Mensaje:</label>
+                           <textarea id="message" name="message" rows="5" required></textarea>
+                       </div>
+                       <button type="submit" class="btn">Enviar Mensaje</button>
+                   </form>
+               </div>
+               <div class="col-2">
+                   <img src="images/contact.png" alt="Contáctanos">
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <div class="footer">
+       <div class="container">
+           <div class="row">
+               <div class="footer-col1">
+                   <h3>Descarga nuestra App</h3>
+                   <p>Disponible para Android & iOS</p>
+                   <div class="app-logo">
+                       <img src="images/play-store.png">
+                       <img src="images/app-store.png">
+                   </div>
+               </div>
+               <div class="footer-col2">
+                   <img src="images/logo-white.png">
+                   <p>"Nuestro Propósito es Crear Joyas Sustentables para Hacer que la Elegancia y Belleza sean Accesibles para Todos."</p>
+               </div>
+               <div class="footer-col3">
+                   <h3>Enlaces útiles</h3>
+                   <ul>
+                       <li>Descuentos</li>
+                       <li>Blog</li>
+                       <li>Políticas</li>
+                       <li>Únete</li>
+                   </ul>
+               </div>
+               <div class="footer-col4">
+                   <h3>Nuestras redes sociales</h3>
+                   <ul>
+                       <li>Facebook</li>
+                       <li>Twitter</li>
+                       <li>Instagram</li>
+                       <li>YouTube</li>
+                   </ul>
+               </div>
+           </div>
+           <hr>
+           <p class="copyright">Interfaces Gráficas | Astrid Mendoza & Mar Barquero 2025</p>
+       </div>
+   </div>
+
+   <script>
+       var MenuItems = document.getElementById("MenuItems");
+       MenuItems.style.maxHeight = "0px";
+       function menutoggle() {
+           if (MenuItems.style.maxHeight == "0px") {
+               MenuItems.style.maxHeight = "200px";
+           } else {
+               MenuItems.style.maxHeight = "0px";
+           }
+       }
+   </script>
+</body>
+</html>

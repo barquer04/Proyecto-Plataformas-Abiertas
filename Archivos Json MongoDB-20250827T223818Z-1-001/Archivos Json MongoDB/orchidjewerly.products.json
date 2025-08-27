@@ -1,0 +1,122 @@
+[
+  {
+    "_id": {
+      "$oid": "6823e02cea9cb5e5156c4bd0"
+    },
+    "nombre": "Anillo de oro Amarillo Cartier",
+    "descripcion": "Anillo de lujo",
+    "precio": 1850.00,
+    "stock": 10,
+    "categoria": "Anillos"
+  },
+  {
+    "_id": {
+      "$oid": "6823e02cea9cb5e5156c4bd1"
+    },
+    "nombre": "Collar de perlas Vivienne Westwood",
+    "descripcion": "Collar elegante",
+    "precio": 920.00,
+    "stock": 5,
+    "categoria": "Collares"
+  },
+  {
+    "_id": {
+      "$oid": "6823e02cea9cb5e5156c4bd2"
+    },
+    "nombre": "Aretes Tara Vivienne Westwood",
+    "descripcion": "Aretes modernos",
+    "precio": 650.00,
+    "stock": 8,
+    "categoria": "Aretes"
+  },
+  {
+    "_id": {
+      "$oid": "6823e02cea9cb5e5156c4bd3"
+    },
+    "nombre": "Anillo Orquidea Swarovski",
+    "descripcion": "Anillo elegante",
+    "precio": 380.00,
+    "stock": 12,
+    "categoria": "Anillos"
+  },
+  {
+    "_id": {
+      "$oid": "6823e02cea9cb5e5156c4bd4"
+    },
+    "nombre": "Reloj Diamantes Rosados Swarovski",
+    "descripcion": "Reloj de lujo",
+    "precio": 1250.00,
+    "stock": 3,
+    "categoria": "Relojes"
+  },
+  {
+    "_id": {
+      "$oid": "6824d6e3da1b9434df3d6461"
+    },
+    "nombre": "Anillo Oro Blanco Cartier",
+    "descripcion": "Anillo exclusivo",
+    "precio": 1920.00,
+    "stock": 7,
+    "categoria": "Anillos"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78a5"
+    },
+    "nombre": "Aretes Corazon Cartier",
+    "descripcion": "Aretes con diseño de corazón",
+    "precio": 780.00,
+    "stock": 9,
+    "categoria": "Aretes"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78a6"
+    },
+    "nombre": "Black Fossil Watch Rolex",
+    "descripcion": "Reloj clásico",
+    "precio": 3500.00,
+    "stock": 4,
+    "categoria": "Relojes"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78a7"
+    },
+    "nombre": "Reloj Pantera Negra Rolex",
+    "descripcion": "Reloj edición especial",
+    "precio": 4200.00,
+    "stock": 2,
+    "categoria": "Relojes"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78a8"
+    },
+    "nombre": "Aretes diamante Dresde Cartier",
+    "descripcion": "Aretes con diamantes",
+    "precio": 1150.00,
+    "stock": 6,
+    "categoria": "Aretes"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78a9"
+    },
+    "nombre": "Anillo Oro Amarillo Cartier",
+    "descripcion": "Anillo clásico",
+    "precio": 1780.00,
+    "stock": 8,
+    "categoria": "Anillos"
+  },
+  {
+    "_id": {
+      "$oid": "6824f5b2e4578c9d2e3d78b0"
+    },
+    "nombre": "Collar de Diamantes Swarovski",
+    "descripcion": "Collar con diamantes",
+    "precio": 1420.00,
+    "stock": 5,
+    "categoria": "Collares"
+  }
+]

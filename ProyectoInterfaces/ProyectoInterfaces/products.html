@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Orchid Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        /* ESTILOS EXISTENTES (se mantienen igual) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #fdf6fb;
+            color: #000000;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .logo img {
+            width: 125px;
+        }
+        
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+        
+        nav ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #FFB3E0;
+        }
+        
+        .menu-icon {
+            width: 28px;
+            margin-left: 20px;
+            display: none;
+            cursor: pointer;
+        }
+        
+        .contenedor-principal {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        .contenedor-items {
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .small-container {
+            width: 100%;
+        }
+        
+        h1, h2 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        /* NUEVOS ESTILOS PARA LA CAJA CON SCROLL */
+        .caja-productos-scroll {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-height: 500px;
+            overflow-y: auto;
+            margin-top: 20px;
+            border: 2px solid #f5e6ef;
+        }
+        
+        /* Personalización de la barra de scroll */
+        .caja-productos-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .caja-productos-scroll::-webkit-scrollbar-track {
+            background: #f9ecf5;
+            border-radius: 10px;
+        }
+        
+        .caja-productos-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FFD7F8, #e28fa9);
+            border-radius: 10px;
+        }
+        
+        /* Estilos para cada producto */
+        .producto-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #f5e6ef;
+            transition: background 0.3s;
+        }
+        
+        .producto-item:last-child {
+            border-bottom: none;
+        }
+        
+        .producto-item:hover {
+            background-color: #fdf6fb;
+            border-radius: 10px;
+        }
+        
+        .nombre-producto {
+            font-weight: 500;
+            font-size: 16px;
+            color: #000000;
+            flex: 2;
+        }
+        
+        .precio-producto {
+            font-weight: 600;
+            color: #e28fa9;
+            font-size: 18px;
+            flex: 1;
+            text-align: right;
+        }
+        
+        /* Estilos para formulario de productos (se mantienen igual) */
+        .form-producto {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(173, 103, 158, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .form-producto label {
+            display: block;
+            margin-top: 10px;
+            color: #000000;
+            font-weight: 500;
+        }
+        
+        .form-producto input {
+            padding: 10px 15px;
+            width: 100%;
+            border: 2px solid #e8d0e0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background: #fef8fd;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+        
+        .form-producto input:focus {
+            outline: none;
+            border-color: #FFB3E0;
+            box-shadow: 0 0 0 3px rgba(255, 183, 224, 0.3);
+        }
+        
+        .form-producto button {
+            background: linear-gradient(to right, #FFD7F8, #e28fa9);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(173, 103, 158, 0.25);
+        }
+        
+        .form-producto button:hover {
+            background: linear-gradient(to right, #e28fa9, #FFD7F8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+        }
+        
+        /* MODIFICACIÓN: La tabla ahora será visible */
+        .tabla-productos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(173, 103, 158, 0.1);
+        }
+        
+        .tabla-productos th,
+        .tabla-productos td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #f5e6ef;
+        }
+        
+        .tabla-productos th {
+            background: linear-gradient(to right, #FFD7F8, #FFB3E0);
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        .tabla-productos tr:hover {
+            background-color: #fdf6fb;
+        }
+        
+        .tabla-productos button {
+            background: linear-gradient(to right, #FFD7F8, #e28fa9);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 2px;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+        
+        .tabla-productos button:hover {
+            background: linear-gradient(to right, #e28fa9, #FFD7F8);
+            transform: translateY(-2px);
+        }
+        
+        /* MODIFICACIÓN: Estilos para botones de acción */
+        .acciones-botones {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-editar {
+            background: linear-gradient(to right, #4CAF50, #8BC34A) !important;
+        }
+        
+        .btn-eliminar {
+            background: linear-gradient(to right, #F44336, #E91E63) !important;
+        }
+
+        /* Estilos para mensajes de carga y error */
+        .cargando {
+            text-align: center;
+            padding: 20px;
+            color: #e28fa9;
+            font-style: italic;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #F44336;
+            background-color: #ffebee;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        
+        /* Footer (se mantiene igual) */
+        .footer {
+            background: linear-gradient(to right, #000000);
+            color: #fff;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-col {
+            min-width: 250px;
+            margin-bottom: 20px;
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background: #FFB3E0;
+            height: 2px;
+            width: 50px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #FFB3E0;
+            padding-left: 5px;
+        }
+        
+        .app-logo {
+            margin-top: 20px;
+        }
+        
+        .app-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        /* MODIFICACIÓN: Tamaño del logo en el footer reducido */
+        .footer-col img {
+            width: 100px; /* Tamaño reducido del logo */
+            margin-bottom: 15px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 800px) {
+            nav ul {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background: linear-gradient(to bottom, #5a2d51, #8a4c7d);
+                width: 100%;
+                overflow: hidden;
+                transition: max-height 0.5s;
+                z-index: 100;
+            }
+            
+            nav ul li {
+                display: block;
+                margin-right: 0;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                color: #fff;
+            }
+            
+            .menu-icon {
+                display: block;
+            }
+            
+            .producto-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .precio-producto {
+                margin-top: 10px;
+                text-align: left;
+            }
+            
+            /* Responsive para la tabla */
+            .tabla-productos {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .acciones-botones {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+      <div class="navbar">
+          <div class="logo">
+              <a href="index.html"><img src="images/logo.png" width="125px"></a>
+          </div>
+          <nav>
+           <ul id="MenuItems">
+               <li><a href="index.html">Inicio</a></li>
+        
+               <li><a href="AboutUs.html">Sobre nosotros</a></li>
+               <li><a href="ContactUs.html">Contáctanos</a></li>
+             
+           </ul>
+          </nav>
+          <img src="images/menu.png" onclick="menutoggle()" class="menu-icon">
+      </div>
+   </div>
+
+<div class="contenedor-principal">
+   <div class="contenedor-items">
+       <div class="small-container">
+           <h1>Gestión de Productos</h1>
+           
+           <!-- Formulario para agregar/editar productos -->
+           <form id="form-producto" class="form-producto">
+               <label>Nombre del producto: <input id="nombre" required type="text" /></label>
+               <label>Descripción: <input id="descripcion" required type="text" /></label>
+               <label>Precio: <input id="precio" required step="0.01" type="number" /></label>
+               <label>Cantidad en stock: <input id="stock" required type="number" /></label>
+               <label>Categoría: <input id="categoria" required type="text" /></label>
+               <label>Imagen (URL): <input id="imagen" type="text" /></label>
+               <button type="submit">Agregar producto</button>
+               <button id="cancelar-edicion" style="display: none" type="button">
+                   Cancelar edición
+               </button>
+           </form>
+           
+           <h2>Listado de Productos</h2>
+           
+           <!-- Área para mensajes de carga y error -->
+           <div id="mensaje-carga" class="cargando">Cargando productos...</div>
+           <div id="mensaje-error" class="error" style="display: none;"></div>
+           
+           <table id="tabla-productos" class="tabla-productos" style="display: none;">
+               <thead>
+                   <tr>
+                       <th>Nombre</th>
+                       <th>Descripción</th>
+                       <th>Precio</th>
+                       <th>Stock</th>
+                       <th>Categoría</th>
+                       <th>Acciones</th>
+                   </tr>
+               </thead>
+               <tbody id="cuerpo-tabla"></tbody>
+           </table>
+       </div>
+   </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h3>Descarga nuestra App</h3>
+                <p>Disponible para Android & iOS</p>
+                <div class="app-logo">
+                    <img src="images/play-store.png">
+                    <img src="images/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col">
+               <img src="images/logo-white.png" style="width: 100px;">
+                <p>"Nuestro Propósito es Crear Joyas Sustentables para Hacer que la Elegancia y Belleza sean Accesibles para Todos."</p>
+            </div>
+            <div class="footer-col">
+               <h3>Enlaces útiles</h3>
+                <ul>
+                    <li><a href="#">Descuentos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Políticas</a></li>
+                    <li><a href="#">Únete</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Nuestras redes sociales</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Interfaces Gráficas | Astrid & Sebastian 2024</p>
+    </div>
+</div>
+
+<script>
+const API_BASE_URL = 'http://127.0.0.1:5000/orchidjewerly/api/v1';
+
+let productos = [];
+let editando = false;
+let productoEditandoId = null;
+
+async function apiRequest(endpoint, options = {}) {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        headers: { 'Content-Type': 'application/json', ...options.headers },
+        ...options
+    });
+    if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+    return await response.json();
+}
+
+async function cargarProductos() {
+    try {
+        mostrarMensajeCarga('Cargando productos...');
+        const data = await apiRequest('/products');
+        productos = data;
+        actualizarTablaProductos();
+        ocultarMensajeCarga();
+        document.getElementById('tabla-productos').style.display = 'table';
+    } catch (error) {
+        mostrarError('Error al cargar los productos: ' + error.message);
+    }
+}
+
+async function agregarProducto(e) {
+    e.preventDefault();
+    const productoData = {
+        nombre: document.getElementById('nombre').value,
+        descripcion: document.getElementById('descripcion').value,
+        precio: parseFloat(document.getElementById('precio').value) || 0,
+        stock: parseInt(document.getElementById('stock').value) || 0,
+        categoria: document.getElementById('categoria').value,
+        imagen: document.getElementById('imagen').value
+    };
+    try {
+        if (editando) {
+            await apiRequest(`/products/${productoEditandoId}`, { method: 'PUT', body: JSON.stringify(productoData) });
+            editando = false;
+            productoEditandoId = null;
+            document.getElementById('cancelar-edicion').style.display = 'none';
+        } else {
+            await apiRequest('/products', { method: 'POST', body: JSON.stringify(productoData) });
+        }
+        document.getElementById('form-producto').reset();
+        await cargarProductos();
+    } catch (error) {
+        mostrarError('Error al guardar el producto: ' + error.message);
+    }
+}
+
+async function editarProducto(id) {
+    try {
+        const producto = await apiRequest(`/products/${id}`);
+        document.getElementById('nombre').value = producto.nombre ?? "";
+        document.getElementById('descripcion').value = producto.descripcion ?? "";
+        document.getElementById('precio').value = parseFloat(producto.precio) || 0;
+        document.getElementById('stock').value = parseInt(producto.stock) || 0;
+        document.getElementById('categoria').value = producto.categoria ?? "";
+        document.getElementById('imagen').value = producto.imagen ?? "";
+        editando = true;
+        productoEditandoId = id;
+        document.getElementById('cancelar-edicion').style.display = 'inline-block';
+        document.getElementById('form-producto').scrollIntoView({ behavior: 'smooth' });
+    } catch (error) {
+        mostrarError('Error al cargar el producto: ' + error.message);
+    }
+}
+
+async function eliminarProducto(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+        try {
+            await apiRequest(`/products/${id}`, { method: 'DELETE' });
+            await cargarProductos();
+        } catch (error) {
+            mostrarError('Error al eliminar el producto: ' + error.message);
+        }
+    }
+}
+
+function actualizarTablaProductos() {
+    const cuerpoTabla = document.getElementById('cuerpo-tabla');
+    cuerpoTabla.innerHTML = '';
+    productos.forEach(producto => {
+        const id = producto._id?.$oid ?? producto._id ?? "";
+        const precio = producto.precio !== undefined ? parseFloat(producto.precio) : 0;
+        const stock = producto.stock !== undefined ? parseInt(producto.stock) : 0;
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${producto.nombre ?? ""}</td>
+            <td>${producto.descripcion ?? ""}</td>
+            <td>$${precio.toFixed(2)}</td>
+            <td>${stock}</td>
+            <td>${producto.categoria ?? ""}</td>
+            <td>
+                <div class="acciones-botones">
+                    <button class="btn-editar" onclick="editarProducto('${id}')">Editar</button>
+                    <button class="btn-eliminar" onclick="eliminarProducto('${id}')">Eliminar</button>
+                </div>
+            </td>
+        `;
+        cuerpoTabla.appendChild(fila);
+    });
+}
+
+function cancelarEdicion() {
+    editando = false;
+    productoEditandoId = null;
+    document.getElementById('form-producto').reset();
+    document.getElementById('cancelar-edicion').style.display = 'none';
+}
+
+function mostrarMensajeCarga(m) {
+    document.getElementById('mensaje-carga').textContent = m;
+    document.getElementById('mensaje-carga').style.display = 'block';
+    document.getElementById('mensaje-error').style.display = 'none';
+}
+function ocultarMensajeCarga() { document.getElementById('mensaje-carga').style.display = 'none'; }
+function mostrarError(m) {
+    const e = document.getElementById('mensaje-error');
+    e.textContent = m;
+    e.style.display = 'block';
+    document.getElementById('mensaje-carga').style.display = 'none';
+    document.getElementById('tabla-productos').style.display = 'none';
+}
+
+var MenuItems = document.getElementById("MenuItems");
+MenuItems.style.maxHeight = "0px";
+function menutoggle() {
+    MenuItems.style.maxHeight = MenuItems.style.maxHeight == "0px" ? "200px" : "0px";
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    cargarProductos();
+    document.getElementById('form-producto').addEventListener('submit', agregarProducto);
+    document.getElementById('cancelar-edicion').addEventListener('click', cancelarEdicion);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Orchid Jewelry</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <div class="header">
+       <div class="container">
+          <div class="navbar">
+              <div class="logo">
+                  <a href="index.html"><img src="images/logo.png" width="125px"></a>
+              </div>
+              <nav>
+               <ul id="MenuItems">
+                   <li><a href="index.html">Inicio</a></li>
+                   <li><a href="AboutUs.html">Sobre nosotros</a></li>
+                   <li><a href="ContactUs.html">Contáctanos</a></li>
+               </ul>
+              </nav>
+              <img src="images/menu.png" onclick="menutoggle()" class="menu-icon">
+          </div>
+           <div class="row">
+                <div class="col-2">
+                    <h1>¿Por Qué "Orchid Jewelry"?</h1>
+                    <p>El nombre "Orchid Jewelry" es un homenaje a la flor nacional de Costa Rica, la Guaria Morada, una orquídea que simboliza la belleza y la delicadeza. La Guaria Morada es conocida por su vibrante color y su elegancia natural, características que buscamos reflejar en cada una de nuestras piezas. <br> Nuestra elección del nombre representa nuestro orgullo por nuestras raíces costarricenses y nuestro compromiso de llevar la esencia de esta hermosa flor al mundo de la joyería.</p>
+                </div>
+                <div class="col-2">
+                    <img src="images/image1.png" alt="Sobre nosotros">
+                </div>
+           </div>
+       </div>
+   </div>
+
+   <!-------------- About Us -------------->
+   <div class="about-us">
+       <div class="small-container">
+           <div class="row">
+               <div class="col-2">
+                   <img src="images/exclusive.png" alt="Nuestro equipo">
+               </div>
+               <div class="col-2">
+                   <h2>Nuestra Historia</h2>
+                   <p>Fundada en 2000, Orchid Jewelry ha crecido desde una pequeña tienda de joyas hasta una marca reconocida a nivel mundial. Nos enorgullecemos de nuestro compromiso con la calidad, la sostenibilidad y la satisfacción del cliente.</p>
+                   <h2>Nuestra Misión</h2>
+                   <p>Crear joyas sustentables que hagan que la elegancia y la belleza sean accesibles para todos. Nos esforzamos por innovar constantemente y mejorar nuestras prácticas para garantizar que nuestras joyas no solo sean hermosas, sino también responsables.</p>
+               </div>
+           </div>
+       </div>
+   </div>
+
+<!----------Footer---------------> 
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col1">
+               <h3>Descarga nuestra App</h3>
+                <p>Disponible para Android & iOS</p>
+                <div class="app-logo">
+                    <img src="images/play-store.png">
+                    <img src="images/app-store.png">
+                </div>
+            </div>
+            <div class="footer-col2">
+               <img src="images/logo-white.png">
+                <p>"Nuestro Propósito es Crear Joyas Sustentables para Hacer que la Elegancia y Belleza sean Accesibles para Todos."</p>
+            </div>
+            <div class="footer-col3">
+               <h3>Enlaces útiles</h3>
+                <ul>
+                    <li>Descuentos</li>
+                    <li>Blog</li>
+                    <li>Políticas</li>
+                    <li>Únete </li>
+                </ul>
+            </div>
+            <div class="footer-col4">
+               <h3>Nuestras redes sociales</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Interfaces Gráficas | Astrid & Sebastian 2024</p>
+    </div>
+</div>
+
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+    
+    MenuItems.style.maxHeight = "0px";
+    
+    function menutoggle()
+    {
+        if(MenuItems.style.maxHeight == "0px")
+            {
+                MenuItems.style.maxHeight = "200px";
+            }else
+            {
+                MenuItems.style.maxHeight = "0px"
+            } 
+    }
+</script>
+</body>
+</html>
